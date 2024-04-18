@@ -1,0 +1,31 @@
+.boxd{
+    width: 580px;
+    height: 700px;
+    background-color: #1f1d2ba0;
+    margin: 0px 18px;
+    border-radius: 8px;
+}
+.d1{
+    width: 720px;
+    margin-left: -50px;
+    background-color: #1f1d2b8f;
+}
+.d1 .items .item .dis h2{
+    position: relative;
+    color: white;
+    top: -80px;
+    left: 45px;
+    width: 150px;
+}
+.d1 .items{
+    overflow-y: auto;
+    width: 680px;
+    height: 600px;
+    
+}
+.d1 .items .item{
+    transition: all 0.5s ease;
+}
+.d1 .items .item:hover{
+    transform: scale(1.1);
+}

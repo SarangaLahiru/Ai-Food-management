@@ -1,0 +1,97 @@
+.containerd1{
+    color: white;
+}
+.containerd1 .search{
+    width: 300px;
+    height: 50px;
+    background-color: rgba(240, 248, 255, 0.223);
+    border-color: rgba(255, 255, 255, 0.485);
+    
+    
+}
+.containerd1 .preBox{
+    position: relative;
+    left: 100px;
+    top: 20px;
+    padding: 5px 25px;
+    border-radius: 8px;
+}
+.containerd1 .dis{
+    background-color: rgba(255, 246, 74, 0.418);
+    padding: 0px 20px;
+    margin: 0px 15px;
+    position: relative;
+    border-radius: 8px;
+
+}
+.containerd1 .dis1{
+    position: relative;
+    top: -12px;
+}
+.containerd1 .dis1 h2{
+    color: yellow;
+}
+.containerd1 .dis1::after{
+    content: '';
+    width: 50px;
+    height: 40px;
+    background-color: rgba(212, 255, 0, 0.818);
+    position: absolute;
+    filter: blur(30px);
+    margin-left: 20px;
+}
+.containerd1 .dis2::after{
+    content: '';
+    width: 150px;
+    height: 40px;
+    background-color: rgba(55, 255, 0, 0.818);
+    position: absolute;
+    filter: blur(35px);
+    margin-left: 20px;
+}
+.containerd1 .dis2 h2{
+    color: rgb(0, 255, 8);
+    cursor: pointer;
+}
+.containerd1 .dis2:hover::after{
+    background-color: rgb(55, 255, 0);
+}
+.containerd1 .a2{
+    background-color: rgba(25, 212, 25, 0.401);
+}
+.containerd1 .a1{
+   color: rgba(29, 221, 29, 0.932);
+}
+.containerd1 .box .prestar{
+    color: rgb(38, 254, 27);
+    font-size: 42px;
+    margin-top: 30px;
+}
+.containerd1 .box .precoin{
+    color: rgb(242, 250, 30);
+    font-size: 42px;
+    margin-top: 30px;
+}
+.containerd1 .box .prestar h2{
+    color: rgba(0, 128, 0, 0.401);
+}
+.containerd1 .s1{
+    background-color: rgba(58, 228, 251, 0.333);
+    cursor: pointer;
+}
+.containerd1 .s1:hover{
+    background-color: rgb(25, 121, 231);
+}
+.containerd1 .dis1 .s2{
+    color: rgb(237, 243, 246);
+}
+.containerd1 .dis3::after{
+    content: '';
+    width: 100px;
+    height: 40px;
+    background-color: rgba(56, 190, 248, 0.988);
+    position: absolute;
+    filter: blur(30px);
+    margin-left: -20px;
+    margin-top: -10px;
+}

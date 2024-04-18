@@ -1,0 +1,31 @@
+.boxg{
+    background-color: #1F1D2B;
+    border-radius: 8px;
+    height: 550px;
+}
+.boxg .recipe{
+    background-color: #322f45d8;
+    color: white;
+    width: 650px;
+    height: 200px;
+    margin-left: -100px;
+    font-size: 18px;
+
+}
+.boxg h2{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: -300px;
+}
+.boxg .btn{
+    width: 650px;
+    margin-left: -100px;
+    margin-top: 50px;
+}
+.boxg .a2{
+    position: relative;
+    top: 50px;
+}
+.boxg1{
+    width: 600px;
+    height: 700px;
+}

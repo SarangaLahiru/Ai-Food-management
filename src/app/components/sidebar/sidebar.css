@@ -1,0 +1,75 @@
+.sider{
+    background-color: #1F1D2B;
+    width: 104px;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+}
+
+.sider ul li{
+    margin-left: 20px;
+    background-color: #f65f5f04;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+
+}
+.sider .box{
+    padding: 15px 15px;
+    background-color: #ffffff00;
+    border-radius: 8px;
+    
+}
+.sider .icon{
+    color: #fb6a6a;
+    position: relative;
+    top: 0px;
+    left: -2px;
+    z-index: 100;
+}
+.sider .box1{
+    width: 70px;
+    margin: 50px 15px;
+    transform: scale(1.2);
+
+}
+
+.sider .icon1{
+    color: #fff;
+    margin-left: 5px;
+    margin-top: 5px;
+    color:white;
+    
+}
+.sider .icon2{
+    background-color: #eb956ae8;
+    height: 60px;
+    
+}
+.sider ul li:hover{
+
+    background-color: #fb6a6a;
+    cursor: pointer;
+
+}
+.sider ul li:hover .icon{
+    color: white;
+    
+}
+.sider .active{
+    background-color: #fb6a6a;
+    color: white;
+}
+.sider .active::after{
+    content: '';
+    width: 50px;
+    height: 50px;
+    background-color: #fb6a6a;
+    position: absolute;
+    margin-top: -55px;
+    filter: blur(30px);
+}
+.sider .active .icon{
+    color: white;
+}

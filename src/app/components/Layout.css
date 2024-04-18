@@ -1,0 +1,26 @@
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Change to the color you want */
+    border-radius: 100px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #F54748; /* Change to the color you want */
+    border-radius: 100px;
+  }
+  ::-webkit-scrollbar {
+    width: 8px; /* Change to the width you want */
+  }
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    background-color: #393C49;
+    overflow-x: hidden;
+    
+}
+.container1{
+    
+    width: 95%;
+    height: 100vh;
+    margin-left: 104px;
+    
+}
