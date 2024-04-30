@@ -9,6 +9,10 @@ import './genarate.css';
 export default function Genarate() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploadStatus, setUploadStatus] = useState('idle');
+<<<<<<< HEAD
+=======
+  const [imageRes,setImageRes]=useState(""); 
+>>>>>>> fd3ced434c51c8751dc0a0c6a4cc128837c38a9e
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -22,7 +26,11 @@ export default function Genarate() {
     }
 
     const formData = new FormData();
+<<<<<<< HEAD
     formData.append('file', selectedImage);
+=======
+    formData.append('file', selectedImage); 
+>>>>>>> fd3ced434c51c8751dc0a0c6a4cc128837c38a9e
     setUploadStatus('uploading');
 
     try {
@@ -34,6 +42,8 @@ export default function Genarate() {
 
       console.log('Upload successful:', response.data);
       setUploadStatus('success');
+      setImageRes(response.data)
+
     } catch (error) {
       console.error('Upload failed:', error);
       setUploadStatus('failed');
@@ -88,6 +98,9 @@ export default function Genarate() {
             <div className="dis">
               {selectedImage && (
                 <img src={URL.createObjectURL(selectedImage)} width="500px" className="m-14" alt="" />
+              )}
+              {imageRes && (
+                <h5>{imageRes}</h5>
               )}
               <p className="text-zinc-400 m-14">
                 {/* Placeholder recipe content */}
