@@ -7,7 +7,8 @@ import axios from 'axios';
 
 export default function genarate() {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState('idle'); 
+  const [uploadStatus, setUploadStatus] = useState('idle');
+  const [imageRes,setImageRes]=useState(""); 
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -21,7 +22,7 @@ export default function genarate() {
     }
 
     const formData = new FormData();
-    formData.append('image', selectedImage); 
+    formData.append('file', selectedImage); 
     setUploadStatus('uploading');
 
     try {
@@ -33,6 +34,8 @@ export default function genarate() {
 
       console.log('Upload successful:', response.data);
       setUploadStatus('success');
+      setImageRes(response.data)
+
     } catch (error) {
       console.error('Upload failed:', error);
       setUploadStatus('failed');
@@ -86,6 +89,9 @@ export default function genarate() {
             <div className="dis">
               {selectedImage && (
                 <img src={URL.createObjectURL(selectedImage)} width="500px" className="m-14" alt="" />
+              )}
+              {imageRes && (
+                <h5>{imageRes}</h5>
               )}
               <p className="text-zinc-400 m-14">
                 {/* Placeholder recipe content */}

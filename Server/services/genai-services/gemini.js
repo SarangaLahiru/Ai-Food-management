@@ -44,6 +44,6 @@ exports.genaiServices={
     const response = await result.response;
     const text = response.text();
 
-    return text
+    return text 
   }
 }
