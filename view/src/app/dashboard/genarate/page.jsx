@@ -1,13 +1,14 @@
+// Import statements
 'use client'
-import Layout from '@/app/components/Layout'
-import React, { useState } from 'react'
-import '../../style.css'
-import './genarate.css';
+import Layout from '@/app/components/Layout';
+import React, { useState } from 'react';
 import axios from 'axios';
+import '../../style.css';
+import './genarate.css';
 
-export default function genarate() {
+export default function Genarate() {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState('idle'); 
+  const [uploadStatus, setUploadStatus] = useState('idle');
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -21,7 +22,7 @@ export default function genarate() {
     }
 
     const formData = new FormData();
-    formData.append('image', selectedImage); 
+    formData.append('file', selectedImage);
     setUploadStatus('uploading');
 
     try {
@@ -37,7 +38,8 @@ export default function genarate() {
       console.error('Upload failed:', error);
       setUploadStatus('failed');
     }
-  }
+  };
+
   return (
     <div>
       <Layout>
@@ -63,7 +65,7 @@ export default function genarate() {
                 </div>
                 <input
                   id="imageInput"
-                  name='file'
+                  name="file"
                   type="file"
                   accept="image/*"
                   onChange={handleImageChange}
@@ -96,4 +98,46 @@ export default function genarate() {
       </Layout>
     </div>
   );
-};
+}
+// 'use client'
+// import React, { useState } from 'react';
+// import axios from 'axios';
+
+// function Genarate() {
+//   const [file, setFile] = useState(null);
+//   const [response, setResponse] = useState('');
+
+//   const handleFileChange = (e) => {
+//       setFile(e.target.files[0]);
+//   };
+
+//   const handleUpload = async () => {
+//       if (!file) return;
+
+//       const formData = new FormData();
+//       formData.append('file', file);
+
+//       try {
+//           const res = await axios.post('http://localhost:5000/upload', formData, {
+//               headers: {
+//                   'Content-Type': 'multipart/form-data'
+//               }
+//           });
+//           setResponse(res.data);
+//       } catch (error) {
+//           console.error("Upload failed:", error);
+//       }
+//   };
+
+//   return (
+//       <div>
+//           <input type="file" onChange={handleFileChange} />
+//           <button onClick={handleUpload}>Upload</button>
+//           {response && <div>{response}</div>}
+//       </div>
+//   );
+// };
+
+
+// export default Genarate;
+

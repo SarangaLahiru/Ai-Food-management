@@ -4,9 +4,17 @@ import './dashheader.css';
 import { MdWorkspacePremium } from "react-icons/md";
 import { BiSolidCoin } from "react-icons/bi";
 import { WiStars } from "react-icons/wi";
+import { useState } from 'react';
 
 export default function Dashheader() {
     const currentDate = new Date();
+
+    const [open, setOpen] = useState(false);
+  const [ingredients, setIngredients] = useState('');
+  const [cuisine, setCuisine] = useState('');
+  const [dietaryRestrictions, setDietaryRestrictions] = useState('');
+  const [mealType, setMealType] = useState('');
+  const [generatedRecipes, setGeneratedRecipes] = useState([]);
 // Array of month names
 const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June', 'July',
@@ -28,6 +36,22 @@ const monthNames = [
 
   // Format the date string
   const formattedDate = `${dayName}, ${monthName} ${day}, ${year}`;
+
+  // Function to handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Code to generate recipes based on user input
+    // You can use APIs or your own logic to generate recipes
+    // For demonstration purposes, let's assume we have a function called generateRecipes
+    const recipes = generateRecipes(ingredients, cuisine, dietaryRestrictions, mealType);
+    setGeneratedRecipes(recipes);
+  };
+
+  // Function to generate recipes (replace with your actual logic)
+  const generateRecipes = (ingredients, cuisine, dietaryRestrictions, mealType) => {
+    // Placeholder function, replace with actual implementation
+    return ['Recipe 1', 'Recipe 2', 'Recipe 3'];
+  };
   return (
     <div>
 
@@ -73,7 +97,7 @@ const monthNames = [
                   </div>
                 </div>
                 <div className="dis flex items-center -mt-5 a2 s1">
-                  <div className="dis1 dis3 flex items-center ">
+                  <div className="dis1 dis3 flex items-center " onClick={() => setOpen(true)}>
                   <WiStars className='s2 prestar'/>
                 
                   </div>
@@ -81,7 +105,92 @@ const monthNames = [
                 
             </div>
         </div>
-      
+        {open && (
+        <div className="fixed inset-0 flex justify-center z-50 items-center bg-black bg-opacity-75">
+          <div className=" bg-neutral-700 p-8 rounded-lg w-3/4">
+            <h2 className="text-2xl font-bold mb-4 text-red-50">Recipe Generator</h2>
+          <div className="box flex flex-wrap items-center justify-center">
+            
+          <form onSubmit={handleSubmit} className='w-96'>
+  {/* Ingredients */}
+  <div className="mb-4">
+    <label className="block text-gray-100 text-sm font-bold mb-2">Ingredients:</label>
+    <input
+      type="text"
+      value={ingredients}
+      onChange={(e) => setIngredients(e.target.value)}
+      placeholder='example : meat,coconu oil'
+      className="shadow appearance-none border rounded w-full py-2 px-3  bg-gray-500 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+    />
+  </div>
+  {/* Cuisine */}
+  <div className="mb-4">
+    <label className="block text-gray-100 text-sm font-bold mb-2">Cuisine:</label>
+    <select
+      value={cuisine}
+      onChange={(e) => setCuisine(e.target.value)}
+      className="shadow appearance-none border rounded w-full py-2 px-3  bg-gray-500 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+    >
+      <option value="" >Select Cuisine</option>
+      <option value="Italian">Italian</option>
+      <option value="Mexican">Mexican</option>
+      <option value="Chinese">Chinese</option>
+      {/* Add more options as needed */}
+    </select>
+  </div>
+  {/* Dietary Restrictions */}
+  <div className="mb-4">
+  <label className="block text-gray-100 text-sm font-bold mb-2">Dietary Restrictions:</label>
+  <select
+    value={dietaryRestrictions}
+    onChange={(e) => setDietaryRestrictions(e.target.value)}
+    className="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-500 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+  >
+    <option value="">Select Dietary Restrictions</option>
+    <option value="Vegetarian">Vegetarian</option>
+    <option value="Vegan">Vegan</option>
+    <option value="Gluten-Free">Gluten-Free</option>
+    {/* Add more options as needed */}
+  </select>
+  </div>
+  {/* Meal Type */}
+  <div className="mb-6">
+    <label className="block text-gray-100 text-sm font-bold mb-2">Meal Type:</label>
+    <select
+      value={mealType}
+      onChange={(e) => setMealType(e.target.value)}
+      className="shadow appearance-none border rounded w-full py-2 px-3  bg-gray-500 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+    >
+      <option value="">Select Meal Type</option>
+      <option value="Breakfast">Breakfast</option>
+      <option value="Lunch">Lunch</option>
+      <option value="Dinner">Dinner</option>
+      {/* Add more options as needed */}
+    </select>
+  </div>
+  {/* Submit Button */}
+  <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" type="submit">Generate Recipes</button>
+  <button className="mt-4 ml-10 border pl-6 pr-6 p-2 rounded border-red-500 text-red-500 hover:text-gray-100 hover:bg-red-500" onClick={() => setOpen(false)}>Close</button>
+</form>
+
+
+            {/* Display Generated Recipes */}
+            <div className="ml-24 relative -top-9 text-red-50">
+              <h3 className="text-2xl -mt-2 font-bold mb-2">Generated Recipes:</h3>
+              <ul className='box1 relative top-5 bg-neutral-600 overflow-y-auto p-5  rounded z-50'>
+                {generatedRecipes.map((recipe, index) => (
+                  <li key={index} className="text-gray-100">{recipe}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+            
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
+  
+      
+ 
