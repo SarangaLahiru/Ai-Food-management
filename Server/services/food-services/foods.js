@@ -13,14 +13,15 @@ exports.foodServices={
         res.send(analyzeText)
     },
     async genarateHealthyRecipe(req,res){
-        const {ing1,ing2,ing3,country} = req.body
-        console.log(ing1,ing2,ing3,country)
+        const {ingredients,cuisine,dietaryRestrictions,mealType} = req.body
+        console.log(ingredients,cuisine,dietaryRestrictions,mealType)
         
         if (!req.body) {
             res.status(413).send(`Data not found`);
             return;
         }
-        const recipetext=await genaiServices.recipeAssync(ing1,ing2,ing3,country)
+        const recipetext=await genaiServices.recipeAssync(ingredients,cuisine,dietaryRestrictions,mealType)
+        console.log(recipetext)
         res.send(recipetext)
     }
 }
