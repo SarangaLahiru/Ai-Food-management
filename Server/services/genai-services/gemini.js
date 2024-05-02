@@ -18,9 +18,10 @@ exports.genaiServices={
   async checkByImageAsync(image,mimetype){
     const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
     const prompt = `
-    Study the picture well. First look carefully at the contents and explain them if they are harmful to the human body. 
-    Then do an analysis of the nutritional components present in it. 
-    Finally, decide whether this is suitable for a healthy lifestyle or not.
+    Carefully examine the image provided. 
+    Begin by assessing its contents and identify any potentially harmful elements to human health. 
+    Next, conduct a thorough analysis of the nutritional components present. 
+    Finally, determine whether the depicted items align with the principles of a healthy lifestyle
     `;
     const imageParts = [
       fileToGenerativePart(image, mimetype),
@@ -34,11 +35,10 @@ exports.genaiServices={
   },
   async recipeAssync(ingredients,cuisine,dietaryRestrictions,mealType){
     const model= genAI.getGenerativeModel({model:"gemini-pro"})
-    const prompt=`People tend to miss out on their nutritious diet due to busy schedule.
-    Generate a nutritious diet recipe that can be easily made with minimal ingredients using the following ingredients.
-    Ingredients:
-    ${ingredients}
-    Try to make recipes as suitable for ${cuisine} ,${dietaryRestrictions} and ${mealType}.
+    const prompt=`
+    Craft a simple yet nutritious recipe tailored for busy individuals. 
+    Utilize the provided ingredients (${ingredients}) to create a meal that aligns with ${cuisine} cuisine, ${dietaryRestrictions} restrictions, and ${mealType}. 
+    The goal is to offer a quick and easy-to-prepare dish that ensures essential nutrients are not overlooked amidst a hectic schedule.
     `
     const result = await model.generateContent([prompt]);
     const response = await result.response;
