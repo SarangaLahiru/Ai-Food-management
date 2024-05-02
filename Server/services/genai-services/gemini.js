@@ -32,13 +32,13 @@ exports.genaiServices={
 
     return text
   },
-  async recipeAssync(ing1,ing2,ing3,county){
+  async recipeAssync(ingredients,cuisine,dietaryRestrictions,mealType){
     const model= genAI.getGenerativeModel({model:"gemini-pro"})
     const prompt=`People tend to miss out on their nutritious diet due to busy schedule.
     Generate a nutritious diet recipe that can be easily made with minimal ingredients using the following ingredients.
     Ingredients:
-    ${ing1},${ing2},${ing3}
-    Try to make recipes as suitable for ${county} .
+    ${ingredients}
+    Try to make recipes as suitable for ${cuisine} ,${dietaryRestrictions} and ${mealType}.
     `
     const result = await model.generateContent([prompt]);
     const response = await result.response;

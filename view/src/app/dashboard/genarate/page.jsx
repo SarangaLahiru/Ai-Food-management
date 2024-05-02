@@ -9,10 +9,7 @@ import './genarate.css';
 export default function Genarate() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploadStatus, setUploadStatus] = useState('idle');
-<<<<<<< HEAD
-=======
   const [imageRes,setImageRes]=useState(""); 
->>>>>>> fd3ced434c51c8751dc0a0c6a4cc128837c38a9e
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -26,11 +23,7 @@ export default function Genarate() {
     }
 
     const formData = new FormData();
-<<<<<<< HEAD
     formData.append('file', selectedImage);
-=======
-    formData.append('file', selectedImage); 
->>>>>>> fd3ced434c51c8751dc0a0c6a4cc128837c38a9e
     setUploadStatus('uploading');
 
     try {
